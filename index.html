@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <title>Menús y Grupos</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <link rel="stylesheet" href="./styles/main.css" />
+</head>
+<body>
+  <main class="page">
+  <header class="page__header">
+      <div class="header-left">
+          <img src="./assets/logo-solaris.svg" alt="Logo Solaris" class="header-logo" />
+      </div>
+
+      <div class="header-center">
+          <h1 class="page__title" data-i18n="title">Brochures y Catálogos</h1>
+          <p class="page__subtitle" data-i18n="subtitle">
+              Explora nuestros menús y catálogos digitales. Toca una tarjeta para ver el catálogo completo.
+          </p>
+      </div>
+
+      <div class="header-right">
+          <select id="lang-switcher" class="lang-switcher">
+              <option value="es">ES</option>
+              <option value="en">EN</option>
+          </select>
+      </div>
+  </header>
+
+    <section class="catalog-section">
+      <div class="catalog-section__header">
+        <h2>Catálogos disponibles</h2>
+      </div>
+
+      <div id="catalog-grid" class="catalog-grid"></div>
+
+      <div class="catalog-section__more">
+        <button id="show-more-btn" class="btn-primary" type="button">
+          Ver más catálogos
+        </button>
+      </div>
+    </section>
+  </main>
+
+  <div id="catalog-viewer" class="viewer" aria-hidden="true">
+    <div class="viewer__backdrop" data-viewer-close></div>
+
+    <div class="viewer__dialog">
+      <header class="viewer__header">
+        <div>
+          <h3 id="viewer-title" class="viewer__title"></h3>
+          <p id="viewer-subtitle" class="viewer__subtitle"></p>
+        </div>
+        <button class="viewer__close" type="button" data-viewer-close aria-label="Cerrar">
+          ✕
+        </button>
+      </header>
+
+      <div class="viewer__body">
+        <div class="viewer__page-wrap">
+          <img id="viewer-image" class="viewer__page" src="" alt="Página del catálogo" />
+        </div>
+      </div>
+
+      <footer class="viewer__footer">
+        <div class="viewer__pages">
+          <button id="btn-prev" class="viewer__icon-btn" type="button" aria-label="Página anterior">‹</button>
+          <span id="viewer-page-indicator">1 / 1</span>
+          <button id="btn-next" class="viewer__icon-btn" type="button" aria-label="Página siguiente">›</button>
+        </div>
+
+        <div class="viewer__zoom">
+          <button id="btn-zoom-out" class="viewer__icon-btn" type="button">−</button>
+          <span id="viewer-zoom-label">100%</span>
+          <button id="btn-zoom-in" class="viewer__icon-btn" type="button">+</button>
+        </div>
+
+        <div class="viewer__actions">
+          <a id="btn-download" class="btn-primary" href="#" target="_blank" rel="noopener">
+            Descargar PDF
+          </a>
+        </div>
+      </footer>
+    </div>
+  </div>
+
+  <!-- JS: primero los datos, luego la lógica -->
+  <script src="./js/catalog-data.js"></script>
+  <script src="./js/main.js"></script>
+</body>
+</html>
