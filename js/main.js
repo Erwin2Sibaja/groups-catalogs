@@ -36,12 +36,18 @@
   const langSwitcher = document.getElementById("lang-switcher");
   const i18nTexts = {
     es: {
-      title: "Brochures y Catálogos",
-      subtitle: "Explora nuestros menús y catálogos digitales. Toca una tarjeta para ver el catálogo completo."
+      title: "Kit banquetes menús",
+      subtitle: "Explora nuestros menús digitales. Toca una tarjeta para ver el catálogo completo.",
+      avalibleCatalogs: "Catálogos disponibles",
+      viewMore: "Ver más catálogos",
+
     },
     en: {
-      title: "Brochures & Catalogs",
-      subtitle: "Explore our digital menus and catalogs. Tap a card to view the full catalog."
+      title: "Banquet kit menus",
+      subtitle: "Explore our digital menus. Tap a card to view the full catalog.",
+      avalibleCatalogs: "Available catalogs",
+      viewMore: "View more catalogs",
+      
     }
   };
 
