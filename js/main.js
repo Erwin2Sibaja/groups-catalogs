@@ -14,9 +14,7 @@
 
   let startX = 0;
   let isDragging = false;
-
   let justSwiped = false;
-  
 
   const viewer = document.getElementById("catalog-viewer");
   const viewerImg = document.getElementById("viewer-image");
@@ -36,18 +34,16 @@
   const langSwitcher = document.getElementById("lang-switcher");
   const i18nTexts = {
     es: {
-      title: "Kit banquetes menús",
+      title: "Kit de banquetes",
       subtitle: "Explora nuestros menús digitales. Toca una tarjeta para ver el catálogo completo.",
       avalibleCatalogs: "Catálogos disponibles",
       viewMore: "Ver más catálogos",
-
     },
     en: {
-      title: "Banquet kit menus",
+      title: "Kit banquet menu",
       subtitle: "Explore our digital menus. Tap a card to view the full catalog.",
       avalibleCatalogs: "Available catalogs",
       viewMore: "View more catalogs",
-      
     }
   };
 
@@ -60,10 +56,12 @@
         i18nTexts[selected].subtitle;
 
       grid.innerHTML = "";
+      
       const catalogs = (window.CATALOGS || []).filter(c => c.lang === selected);
-      catalogs.slice(0, 8).forEach((c, idx) => grid.appendChild(createCard(c, idx)));
+      
+      catalogs.forEach((c, idx) => grid.appendChild(createCard(c, idx)));
 
-      btnShowMore.style.display = catalogs.length > 4 ? "inline-flex" : "none";
+      btnShowMore.style.display = catalogs.length > 6 ? "inline-flex" : "none";
   });
 
 
@@ -80,8 +78,10 @@
     article.className = "catalog-card";
     article.dataset.id = catalog.id;
 
-    if (index >= 4) {
-      article.classList.add("catalog-card--hidden-mobile");
+
+    if (index >= 6) {
+      article.style.display = "none";
+      article.classList.add("js-hidden-card");
     }
 
     article.innerHTML = `
@@ -114,27 +114,30 @@
   }
 
   function renderGrid() {
-    const catalogs = getCatalogsForLang(currentLang).slice(0, 8);
+    const catalogs = getCatalogsForLang(currentLang);
     grid.innerHTML = "";
 
     catalogs.forEach((cat, index) => {
       grid.appendChild(createCard(cat, index));
     });
 
-    const showMoreNeeded = catalogs.length > 4;
+    const showMoreNeeded = catalogs.length > 6;
     btnShowMore.style.display = showMoreNeeded ? "inline-flex" : "none";
   }
 
   function setupShowMore() {
     btnShowMore.addEventListener("click", () => {
-      const hiddenCards = grid.querySelectorAll(".catalog-card--hidden-mobile");
-      hiddenCards.forEach((card) =>
-        card.classList.remove("catalog-card--hidden-mobile")
-      );
+
+      const hiddenCards = grid.querySelectorAll(".js-hidden-card");
+      
+      hiddenCards.forEach((card) => {
+        card.style.display = "";
+        card.classList.remove("js-hidden-card");
+      });
+      
       btnShowMore.style.display = "none";
     });
   }
-
 
   function openViewer(catalog, pageIndex) {
     currentCatalog = catalog;
@@ -205,8 +208,6 @@
     }, 180);
   }
 
-
-
   function updateZoomLabel() {
     zoomLabel.textContent = Math.round(currentZoom * 100) + "%";
   }
@@ -266,7 +267,6 @@
 
       const delta = e.touches[0].clientX - startX;
 
-      // arrastre más fuerte para que se sienta libro
       viewerImg.style.transform =
         `translateX(${delta / 3}px) scale(${currentZoom})`; 
     });
@@ -278,7 +278,7 @@
       const delta = e.changedTouches[0].clientX - startX;
       viewerImg.style.transform = `scale(${currentZoom})`;
 
-      const threshold = 35; // Más sensible
+      const threshold = 35;
 
       if (delta < -threshold) {
         changePage(1);
@@ -296,7 +296,7 @@
     if (!viewerPageWrap) return;
 
     viewerPageWrap.addEventListener("click", (e) => {
-      if (justSwiped) return; // evita doble acción
+      if (justSwiped) return;
       if (!currentCatalog) return;
 
       const rect = viewerPageWrap.getBoundingClientRect();

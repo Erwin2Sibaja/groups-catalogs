@@ -1,46 +1,48 @@
-// Catálogos disponibles (puedes agregar hasta 8)
+// Catálogos disponibles
 window.CATALOGS = [
-    /* Catálogo de Servicios  */
+    /* Políticas */
     {
-        id: "services-catalog",
+        id: "politics",
         lang: "es",
-        title: "Catálogo de Servicios",
-        subtitle: "Opciones de menús y montajes",
-        description: "Explora nuestros menús para eventos privados y grupos.",
-        cover: "./assets/images/service-catalogs/services-01.jpg",
+        title: "Políticas",
+        subtitle: "Lineamientos para grupos",
+        description: "Información contractual sobre capacidades, horarios y normativas para la logística de su evento.",
+        cover: "./assets/images/font-pages/font-page-politics-800x800.webp",
         pages: [
-            "./assets/images/service-catalogs/services-02.jpg",
-            "./assets/images/service-catalogs/services-03.jpg",
+            "./assets/images/es/politics/font-page.webp",
+            "./assets/images/es/politics/politics-01.webp",
+            "./assets/images/es/politics/politics-02.webp",
         ],
         pdfUrl: "./assets/pdf/catalogo-eventos-es.pdf"
     },
     {
-        id: "services-catalog",
+        id: "politics",
         lang: "en",
-        title: "Services Catalog",
-        subtitle: "Menu & setup options",
-        description: "Discover our menus and options for private events and groups.",
-        cover: "./assets/images/catalogo-eventos-cover-en.webp",
+        title: "Policies",
+        subtitle: "Group guidelines",
+        description: "Contractual details regarding capacities, schedules, and regulations for your event logistics.",
+        cover: "./assets/images/font-pages/font-page-politics-800x800.webp",
         pages: [
-        "./assets/images/catalogo-eventos-cover-en.webp",
-        "./assets/images/catalogo-eventos-p1-en.webp",
-        "./assets/images/catalogo-eventos-p2-en.webp"
+            "./assets/images/en/politics/font-page.webp",
+            "./assets/images/en/politics/politics-01.webp",
+            "./assets/images/en/politics/politics-01.webp"
         ],
         pdfUrl: "./assets/pdf/catalogo-eventos-en.pdf"
     },
+
     /* Plated Breakfast */
     {
         id: "plated-breakfast",
         lang: "es",
-        title: "Desayunos emplatados",
-        subtitle: "",
-        description: "",
-        cover: "./assets/images/plated-breakfast/plated-bkf-01.jpg",
+        title: "Desayunos Emplatados",
+        subtitle: "Servicio formal a la mesa",
+        description: "Menús preestablecidos servidos individualmente, ideales para sesiones matutinas ejecutivas.",
+        cover: "./assets/images/font-pages/font-page-plated-breakfast-800x800.webp",
         pages: [
-        "./assets/images/plated-breakfast/plated-bkf-01.jpg",
-        "./assets/images/plated-breakfast/plated-bkf-02.jpg",
-        "./assets/images/plated-breakfast/plated-bkf-03.jpg",
-        "./assets/images/plated-breakfast/plated-bkf-04.jpg"
+            "./assets/images/es/plated-breakfast/font-page.webp",
+            "./assets/images/es/plated-breakfast/plated-breakfast-01.webp",
+            "./assets/images/es/plated-breakfast/plated-breakfast-02.webp",
+            "./assets/images/es/plated-breakfast/plated-breakfast-03.webp"
         ],
         pdfUrl: ""
     },
@@ -48,205 +50,237 @@ window.CATALOGS = [
         id: "plated-breakfast",
         lang: "en",
         title: "Plated Breakfast",
-        subtitle: "",
-        description: "",
-        cover: "",
-        pages: [],
+        subtitle: "Formal table service",
+        description: "Set menus served individually, ideal for executive morning sessions and structured timelines.",
+        cover: "./assets/images/font-pages/font-page-plated-breakfast-800x800.webp",
+        pages: [
+            "./assets/images/en/plated-breakfast/font-page.webp",
+            "./assets/images/en/plated-breakfast/plated-breakfast-01.webp",
+            "./assets/images/en/plated-breakfast/plated-breakfast-02.webp",
+            "./assets/images/en/plated-breakfast/plated-breakfast-03.webp"
+        ],
         pdfUrl: ""
     },
+
     /* Buffet Breakfast */
     {
         id: "buffet-breakfast",
         lang: "es",
-        title: "Buffet Breakfast",
-        subtitle: "",
-        description: "",
-        cover: "./assets/images/buffet-breakfast/buffet-bkf-01.jpg",
+        title: "Desayuno Buffet",
+        subtitle: "Estaciones variadas para grupos",
+        description: "Montaje tipo buffet con opciones frías y calientes, diseñado para flujos rápidos de asistentes.",
+        cover: "./assets/images/font-pages/font-page-buffet-breakfast-800x800.webp",
         pages: [
-        "./assets/images/buffet-breakfast/buffet-bkf-01.jpg",
-        "./assets/images/buffet-breakfast/buffet-bkf-02.jpg",
-        "./assets/images/buffet-breakfast/buffet-bkf-03.jpg",
-        "./assets/images/buffet-breakfast/buffet-bkf-04.jpg",
-        "./assets/images/buffet-breakfast/buffet-bkf-05.jpg",
-        "./assets/images/buffet-breakfast/buffet-bkf-06.jpg",
-        "./assets/images/buffet-breakfast/buffet-bkf-07.jpg"
+            "./assets/images/es/buffet-breakfast/font-page.webp",
+            "./assets/images/es/buffet-breakfast/buffet-breakfast-01.webp",
+            "./assets/images/es/buffet-breakfast/buffet-breakfast-02.webp",
+            "./assets/images/es/buffet-breakfast/buffet-breakfast-03.webp",
         ],
         pdfUrl: ""
     },
     {
         id: "buffet-breakfast",
         lang: "en",
-        title: "",
-        subtitle: "",
-        description: "",
-        cover: "",
-        pages: [],
+        title: "Buffet Breakfast",
+        subtitle: "Diverse stations for groups",
+        description: "Buffet-style setup featuring hot and cold options, designed for efficient attendee flow.",
+        cover: "./assets/images/font-pages/font-page-buffet-breakfast-800x800.webp",
+        pages: [
+            "./assets/images/en/buffet-breakfast/font-page.webp",
+            "./assets/images/en/buffet-breakfast/buffet-breakfast-01.webp",
+            "./assets/images/en/buffet-breakfast/buffet-breakfast-02.webp",
+            "./assets/images/en/buffet-breakfast/buffet-breakfast-03.webp",
+        ],
         pdfUrl: ""
     },
+
     /* Plated Dinners */
     {
         id: "plated-dinners",
         lang: "es",
-        title: "Plated Dinners",
-        subtitle: "",
-        description: "",
-        cover: "./assets/images/plated-dinners/plated-dinnner-01.jpg",
+        title: "Cenas enplatadas",
+        subtitle: "Menús de 4 tiempos",
+        description: "Propuestas de alta cocina para recepciones formales, bodas o cenas de clausura.",
+        cover: "./assets/images/font-pages/font-page-plated-dinners-800x800.webp",
         pages: [
-        "./assets/images/plated-dinners/plated-dinnner-01.jpg",
-        "./assets/images/plated-dinners/plated-dinnner-02.jpg",
-        "./assets/images/plated-dinners/plated-dinnner-03.jpg",
-        "./assets/images/plated-dinners/plated-dinnner-04.jpg",
-        "./assets/images/plated-dinners/plated-dinnner-05.jpg",
-        "./assets/images/plated-dinners/plated-dinnner-06.jpg",
-        "./assets/images/plated-dinners/plated-dinnner-07.jpg"
+            "./assets/images/es/plated-dinners/font-page.webp",
+            "./assets/images/es/plated-dinners/plated-dinners-01.webp",
+            "./assets/images/es/plated-dinners/plated-dinners-02.webp",
+            "./assets/images/es/plated-dinners/plated-dinners-03.webp",
         ],
         pdfUrl: ""
     },
     {
         id: "plated-dinners",
         lang: "en",
-        title: "",
-        subtitle: "",
-        description: "",
-        cover: "",
-        pages: [],
+        title: "Plated Dinners",
+        subtitle: "4 Course Menus",
+        description: "Haute cuisine proposals tailored for formal receptions, weddings, or closing dinners.",
+        cover: "./assets/images/font-pages/font-page-plated-dinners-800x800.webp",
+        pages: [
+            "./assets/images/en/plated-dinners/font-page.webp",
+            "./assets/images/en/plated-dinners/plated-dinners-01.webp",
+            "./assets/images/en/plated-dinners/plated-dinners-02.webp",
+            "./assets/images/en/plated-dinners/plated-dinners-03.webp",
+        ],
         pdfUrl: ""
     },
+
     /* Buffet Dinners */
     {
         id: "buffet-dinners",
         lang: "es",
-        title: "Buffet Dinners",
-        subtitle: "",
-        description: "",
-        cover: "./assets/images/buffet-dinners/buffet-dinner-01.jpg",
+        title: "Cenas Buffet",
+        subtitle: "Opciones para grandes volúmenes",
+        description: "Menús temáticos (Caribeña, Mexicano, Internacional, etc.) ideales para eventos de rompehielo.",
+        cover: "./assets/images/font-pages/font-page-buffet-dinners-800x800.webp",
         pages: [
-        "./assets/images/buffet-dinners/buffet-dinner-01.jpg",
-        "./assets/images/buffet-dinners/buffet-dinner-02.jpg",
-        "./assets/images/buffet-dinners/buffet-dinner-03.jpg",
-        "./assets/images/buffet-dinners/buffet-dinner-04.jpg",
-        "./assets/images/buffet-dinners/buffet-dinner-06.jpg",
-        "./assets/images/buffet-dinners/buffet-dinner-07.jpg",
-        "./assets/images/buffet-dinners/buffet-dinner-08.jpg",
-        "./assets/images/buffet-dinners/buffet-dinner-09.jpg",
-        "./assets/images/buffet-dinners/buffet-dinner-10.jpg",
-        "./assets/images/buffet-dinners/buffet-dinner-11.jpg",
-        "./assets/images/buffet-dinners/buffet-dinner-12.jpg"
+            "./assets/images/es/buffet-dinners/font-page.webp",
+            "./assets/images/es/buffet-dinners/buffet-dinner-01.webp",
+            "./assets/images/es/buffet-dinners/buffet-dinner-02.webp",
+            "./assets/images/es/buffet-dinners/buffet-dinner-03.webp",
+            "./assets/images/es/buffet-dinners/buffet-dinner-04.webp",
+            "./assets/images/es/buffet-dinners/buffet-dinner-05.webp",
         ],
         pdfUrl: ""
     },
     {
         id: "buffet-dinners",
         lang: "en",
-        title: "",
-        subtitle: "",
-        description: "",
-        cover: "",
-        pages: [],
+        title: "Buffet Dinners",
+        subtitle: "Large volume solutions",
+        description: "Themed menus (Caribean, Mexican, International, etc.) perfect for icebreaker events or casual gatherings.",
+        cover: "./assets/images/font-pages/font-page-buffet-dinners-800x800.webp",
+        pages: [
+            "./assets/images/en/buffet-dinners/font-page.webp",
+            "./assets/images/en/buffet-dinners/buffet-dinner-01.webp",
+            "./assets/images/en/buffet-dinners/buffet-dinner-02.webp",
+            "./assets/images/en/buffet-dinners/buffet-dinner-03.webp",
+            "./assets/images/en/buffet-dinners/buffet-dinner-04.webp",
+            "./assets/images/en/buffet-dinners/buffet-dinner-05.webp",
+        ],
         pdfUrl: ""
     },
+
     /* Coffee Break */
     {
         id: "coffee-break",
         lang: "es",
         title: "Coffee Break",
-        subtitle: "",
-        description: "",
-        cover: "./assets/images/coffee-break/coffee-break-01.jpg",
+        subtitle: "Pausas para sesiones de trabajo",
+        description: "Paquetes con café, té y bocadillos para mantener la productividad del grupo.",
+        cover: "./assets/images/font-pages/font-page-coffee-break-800x800.webp",
         pages: [
-        "./assets/images/coffee-break/coffee-break-01.jpg",
-        "./assets/images/coffee-break/coffee-break-02.jpg",
-        "./assets/images/coffee-break/coffee-break-03.jpg",
-        "./assets/images/coffee-break/coffee-break-04.jpg"
+            "./assets/images/es/coffee-break/font-page.webp",
+            "./assets/images/es/coffee-break/coffee-break-01.webp",
+            "./assets/images/es/coffee-break/coffee-break-02.webp",
+            "./assets/images/es/coffee-break/coffee-break-03.webp"
         ],
         pdfUrl: ""
     },
     {
         id: "coffee-break",
         lang: "en",
-        title: "",
-        subtitle: "",
-        description: "",
-        cover: "",
-        pages: [],
+        title: "Coffee Break",
+        subtitle: "Work session intermissions",
+        description: "Packages featuring coffee, tea, and snacks to maintain group productivity.",
+        cover: "./assets/images/font-pages/font-page-coffee-break-800x800.webp",
+        pages: [
+            "./assets/images/en/coffee-break/font-page.webp",
+            "./assets/images/en/coffee-break/coffee-break-01.webp",
+            "./assets/images/en/coffee-break/coffee-break-02.webp",
+            "./assets/images/en/coffee-break/coffee-break-03.webp"
+        ],
         pdfUrl: ""
     },
-    /*Canapés*/
+
+    /* Canapés */
     {
         id: "canapes",
         lang: "es",
-        title: "Canapés",
-        subtitle: "",
-        description: "",
-        cover: "./assets/images/canapes/canapes-01.jpg",
+        title: " Canapés",
+        subtitle: "Servicio de 'pasabocas'",
+        description: "Selección de piezas frías y calientes, perfectas para recepciones de bienvenida.",
+        cover: "./assets/images/font-pages/font-page-canapes-800x800.webp",
         pages: [
-        "./assets/images/canapes/canapes-01.jpg",
-        "./assets/images/canapes/canapes-02.jpg",
-        "./assets/images/canapes/canapes-03.jpg",
-        "./assets/images/canapes/canapes-04.jpg",
-        "./assets/images/canapes/canapes-05.jpg",
-        "./assets/images/canapes/canapes-06.jpg"
+            "./assets/images/es/canapes/font-page.webp",
+            "./assets/images/es/canapes/canapes-01.webp",
+            "./assets/images/es/canapes/canapes-02.webp",
+            "./assets/images/es/canapes/canapes-03.webp",
         ],
         pdfUrl: ""
     },
     {
         id: "canapes",
         lang: "en",
-        title: "",
-        subtitle: "",
-        description: "",
-        cover: "",
-        pages: [],
+        title: "Canapes",
+        subtitle: "Hors d'oeuvres service",
+        description: "Selection of hot and cold pieces, perfect for welcome receptions.",
+        cover: "./assets/images/font-pages/font-page-canapes-800x800.webp",
+        pages: [
+            "./assets/images/en/canapes/font-page.webp",
+            "./assets/images/en/canapes/canapes-01.webp",
+            "./assets/images/en/canapes/canapes-02.webp",
+            "./assets/images/en/canapes/canapes-03.webp",
+        ],
         pdfUrl: ""
     },
-    /*Open bar*/
-      {
+
+    /* Open Bar */
+    {
         id: "open-bar",
         lang: "es",
+        title: "Barra Libre",
+        subtitle: "Bebidas nacionales e internacionales",
+        description: "Contratación de servicio de alcohol por hora para complementar cenas y fiestas privadas.",
+        cover: "./assets/images/font-pages/font-page-open-bar-800x800.webp",
+        pages: [
+            "./assets/images/es/open-bar/font-page.webp",
+            "./assets/images/es/open-bar/open-bar-01.webp",
+            "./assets/images/es/open-bar/open-bar-02.webp"
+        ],
+        pdfUrl: ""
+    },
+    {
+        id: "open-bar",
+        lang: "en",
         title: "Open Bar",
-        subtitle: "",
-        description: "",
-        cover: "./assets/images/open-bar/open-bar-01.jpg",
+        subtitle: "Domestic & Intl. Spirits",
+        description: "Hourly alcohol service contracting to complement dinners and private parties.",
+        cover: "./assets/images/font-pages/font-page-open-bar-800x800.webp",
         pages: [
-        "./assets/images/open-bar/open-bar-01.jpg",
-        "./assets/images/open-bar/open-bar-02.jpg",
-        "./assets/images/open-bar/open-bar-03.jpg"
+            "./assets/images/en/open-bar/font-page.webp",
+            "./assets/images/en/open-bar/open-bar-01.webp",
+            "./assets/images/en/open-bar/open-bar-02.webp"
         ],
         pdfUrl: ""
     },
-    {
-        id: "open-bar",
-        lang: "en",
-        title: "",
-        subtitle: "",
-        description: "",
-        cover: "",
-        pages: [],
-        pdfUrl: ""
-    },
+
     /* Box Lunch */
     {
         id: "box-lunch",
         lang: "es",
         title: "Box Lunch",
-        subtitle: "",
-        description: "",
-        cover: "./assets/images/box-lunch/box-lunch-01.jpg",
+        subtitle: "Refrigerio para grupos",
+        description: "Paquetes de comida portátil y completa para grupos.",
+        cover: "./assets/images/font-pages/font-page-box-lunch-800x800.webp",
         pages: [
-        "./assets/images/box-lunch/box-lunch-01.jpg",
-        "./assets/images/box-lunch/box-lunch-02.jpg"
+            "./assets/images/es/box-lunch/font-page.webp",
+            "./assets/images/es/box-lunch/box-lunch-01.webp"
         ],
         pdfUrl: ""
     },
     {
         id: "box-lunch",
         lang: "en",
-        title: "",
-        subtitle: "",
-        description: "",
-        cover: "",
-        pages: [],
+        title: "Box Lunch",
+        subtitle: "Lunch for groups",
+        description: "Portable and complete meal packages designed for groups.",
+        cover: "./assets/images/font-pages/font-page-box-lunch-800x800.webp",
+        pages: [
+            "./assets/images/en/box-lunch/font-page.webp",
+            "./assets/images/en/box-lunch/box-lunch-01.webp"
+        ],
         pdfUrl: ""
     },
-
 ];
