@@ -9,29 +9,33 @@
 </head>
 <body>
   <main class="page">
-  <header class="page__header">
-      <div class="header-left">
-          <img src="./assets/images/logo.svg" alt="Logo Solaris" class="header-logo" />
-      </div>
+    <header class="page__header">
+        <div class="header-left">
+            <img src="./assets/images/logo.svg" alt="Logo Solaris" class="header-logo" />
+        </div>
 
-      <div class="header-center">
-          <h1 class="page__title" data-i18n="title">Kit de banquetes</h1>
-          <p class="page__subtitle" data-i18n="subtitle">
-              Explora nuestros menús digitales. Toca una tarjeta para ver el catálogo completo.
-          </p>
-      </div>
+        <div class="header-center">
+            <h1 class="page__title" data-i18n="title">Kit de banquetes</h1>
+            <p class="page__subtitle" data-i18n="subtitle">
+                Explora nuestros menús digitales. Toca una tarjeta para ver el catálogo completo.
+            </p>
+        </div>
 
-      <div class="header-right">
-          <select id="lang-switcher" class="lang-switcher">
-              <option value="es">ES</option>
-              <option value="en">EN</option>
-          </select>
-      </div>
-  </header>
-
+        <div class="header-right">
+            <select id="lang-switcher" class="lang-switcher">
+                <option value="es">ES</option>
+                <option value="en">EN</option>
+            </select>
+        </div>
+    </header>
+    <div class="viewer__actions">
+      <a id="btn-download" class="btn-primary" href="#" target="_blank" rel="noopener" data-i18n="download">
+        Descargar menú completo
+      </a>
+    </div>
     <section class="catalog-section">
-      <div class="catalog-section__header" data-i18n="availableCatalogs">
-        <h2>Catálogos disponibles</h2>
+      <div class="catalog-section__header">
+        <h2 data-i18n="availableCatalogs">Catálogos disponibles</h2>
       </div>
 
       <div id="catalog-grid" class="catalog-grid"></div>
@@ -60,6 +64,7 @@
 
       <div class="viewer__body">
         <div class="viewer__page-wrap">
+          <div id="viewer-loader" class="viewer__loader"></div>
           <img id="viewer-image" class="viewer__page" src="" alt="Página del catálogo" />
         </div>
       </div>
@@ -77,11 +82,6 @@
           <button id="btn-zoom-in" class="viewer__icon-btn" type="button">+</button>
         </div>
 
-        <div class="viewer__actions">
-          <a id="btn-download" class="btn-primary" href="#" target="_blank" rel="noopener">
-            Descargar PDF
-          </a>
-        </div>
       </footer>
     </div>
   </div>

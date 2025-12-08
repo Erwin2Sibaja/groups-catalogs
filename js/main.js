@@ -36,29 +36,48 @@
     es: {
       title: "Kit de banquetes",
       subtitle: "Explora nuestros menús digitales. Toca una tarjeta para ver el catálogo completo.",
-      avalibleCatalogs: "Catálogos disponibles",
+      availableCatalogs: "Catálogos disponibles",
+      viewMenu: "Ver menú",
+      download: "Descargar menú completo",
       viewMore: "Ver más catálogos",
     },
     en: {
       title: "Kit banquet menu",
       subtitle: "Explore our digital menus. Tap a card to view the full catalog.",
-      avalibleCatalogs: "Available catalogs",
+      availableCatalogs: "Available catalogs",
+      viewMenu: "View menu",
+      download: "Download full menu",
       viewMore: "View more catalogs",
     }
   };
 
-  langSwitcher.addEventListener("change", () => {
+langSwitcher.addEventListener("change", () => {
       const selected = langSwitcher.value;
 
       document.querySelector("[data-i18n='title']").textContent =
         i18nTexts[selected].title;
+      
       document.querySelector("[data-i18n='subtitle']").textContent =
         i18nTexts[selected].subtitle;
 
+            document.querySelector("[data-i18n='download']").textContent =
+        i18nTexts[selected].download;
+
+      const headerLabel = document.querySelector("[data-i18n='availableCatalogs'] h2"); 
+      if(headerLabel) {
+         document.querySelector("[data-i18n='availableCatalogs'] h2").textContent = i18nTexts[selected].availableCatalogs;
+      } else {
+         const directH2 = document.querySelector("[data-i18n='availableCatalogs']");
+         if(directH2) directH2.textContent = i18nTexts[selected].availableCatalogs;
+      }
+
+      const btnLabel = document.querySelector("[data-i18n='viewMore']");
+      if (btnLabel) {
+        btnLabel.textContent = i18nTexts[selected].viewMore;
+      }
+
       grid.innerHTML = "";
-      
       const catalogs = (window.CATALOGS || []).filter(c => c.lang === selected);
-      
       catalogs.forEach((c, idx) => grid.appendChild(createCard(c, idx)));
 
       btnShowMore.style.display = catalogs.length > 6 ? "inline-flex" : "none";
@@ -74,6 +93,7 @@
   }
 
   function createCard(catalog, index) {
+    const selected = langSwitcher.value;
     const article = document.createElement("article");
     article.className = "catalog-card";
     article.dataset.id = catalog.id;
@@ -101,7 +121,7 @@
         <p class="catalog-card__desc">${catalog.description}</p>
 
         <div class="catalog-card__btn-wrap">
-          <button class="btn-primary" type="button">VER MÁS</button>
+          <button class="btn-primary" type="button">${i18nTexts[selected].viewMenu}</button>
         </div>
       </div>
     `;
@@ -144,9 +164,9 @@
     currentPageIndex = pageIndex || 0;
 
     if (window.innerWidth > 768) {
-      currentZoom = 0.90;
-    } else {
       currentZoom = 0.80;
+    } else {
+      currentZoom = 1;
     }
 
     viewerTitle.textContent = catalog.title;
@@ -160,9 +180,11 @@
     viewer.setAttribute("aria-hidden", "false");
   }
 
-  function closeViewer() {
+function closeViewer() {
     viewer.classList.remove("viewer--open");
     viewer.setAttribute("aria-hidden", "true");
+    
+    viewerImg.src = ""; 
     currentCatalog = null;
   }
 
@@ -175,37 +197,28 @@
     if (currentPageIndex > pages.length - 1)
       currentPageIndex = pages.length - 1;
 
-    const src = pages[currentPageIndex];
-
-    viewerImg.classList.remove(
-      "viewer__page--slide-left",
-      "viewer__page--slide-right",
-      "viewer__page--fade"
-    );
-
-    if (direction === "next") {
-      viewerImg.classList.add("viewer__page--slide-left");
-    } else if (direction === "prev") {
-      viewerImg.classList.add("viewer__page--slide-right");
-    } else {
-      viewerImg.classList.add("viewer__page--fade");
+    const viewerBody = document.querySelector(".viewer__body");
+    if (viewerBody) {
+      viewerBody.scrollTop = 0;
     }
 
-    void viewerImg.offsetWidth;
+    const src = pages[currentPageIndex];
+    const loader = document.getElementById("viewer-loader");
+
+    if (loader) loader.classList.add("viewer__loader--active");
+    viewerImg.style.opacity = "0.5";
+
+    viewerImg.onload = () => {
+       if (loader) loader.classList.remove("viewer__loader--active");
+       viewerImg.style.opacity = "1";
+       viewerImg.classList.remove("viewer__page--slide-left", "viewer__page--slide-right", "viewer__page--fade");
+    };
 
     viewerImg.src = src;
     viewerImg.style.transform = `scale(${currentZoom})`;
 
     const pagesCount = pages.length;
     pageIndicator.textContent = `${currentPageIndex + 1} / ${pagesCount}`;
-
-    setTimeout(() => {
-      viewerImg.classList.remove(
-        "viewer__page--slide-left",
-        "viewer__page--slide-right",
-        "viewer__page--fade"
-      );
-    }, 180);
   }
 
   function updateZoomLabel() {
