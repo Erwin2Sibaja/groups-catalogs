@@ -66,7 +66,7 @@ window.CATALOGS = [
     {
         id: "buffet-breakfast",
         lang: "es",
-        title: "Desayuno Buffet",
+        title: "Desayunos Buffet",
         subtitle: "Estaciones variadas para grupos",
         description: "Montaje tipo buffet con opciones frías y calientes, diseñado para flujos rápidos de asistentes.",
         cover: "./assets/images/font-pages/font-page-buffet-breakfast-800x800.webp",
@@ -98,7 +98,7 @@ window.CATALOGS = [
     {
         id: "plated-dinners",
         lang: "es",
-        title: "Cenas enplatadas",
+        title: "Cenas emplatadas",
         subtitle: "Menús de 4 tiempos",
         description: "Propuestas de alta cocina para recepciones formales, bodas o cenas de clausura.",
         cover: "./assets/images/font-pages/font-page-plated-dinners-800x800.webp",

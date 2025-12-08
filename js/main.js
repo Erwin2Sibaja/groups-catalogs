@@ -146,7 +146,7 @@
     if (window.innerWidth > 768) {
       currentZoom = 0.90;
     } else {
-      currentZoom = 1;
+      currentZoom = 0.80;
     }
 
     viewerTitle.textContent = catalog.title;
