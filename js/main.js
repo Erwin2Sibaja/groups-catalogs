@@ -39,7 +39,7 @@
       viewMore: "Ver más catálogos",
       // Configuración del botón general
       download: "Descargar menú completo",
-      generalMenuUrl: "./assets/pdf/menu-general-es.pdf",
+      generalMenuUrl: "./assets/pdf/es/menu-general-es.pdf",
     },
     en: {
       title: "Kit banquet menu",
@@ -49,7 +49,7 @@
       viewMore: "View more catalogs",
       // Configuración del botón general
       download: "Download full menu",
-      generalMenuUrl: "./assets/pdf/menu-general-en.pdf",
+      generalMenuUrl: "./assets/pdf/en/menu-general-en.pdf",
     }
   };
 

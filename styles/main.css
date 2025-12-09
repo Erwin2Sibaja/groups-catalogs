@@ -1,9 +1,3 @@
-    @font-face {
-        font-family: 'Carbona Variable';
-        src: url('path/to/carbona-variable.woff2') format('woff2');
-        font-weight: 100 900;
-        font-style: oblique 0deg 15deg;
-    }
 *,
 *::before,
 *::after {
