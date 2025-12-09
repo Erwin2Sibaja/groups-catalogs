@@ -1,18 +1,9 @@
-@font-face {
-  font-family: 'Carbona';
-  src: url('../fonts/Carbona-Regular.woff2') format('woff2'),
-       url('../fonts/Carbona-Regular.woff') format('woff');
-  font-weight: normal;
-  font-style: normal;
-}
-
-@font-face {
-  font-family: 'Carbona Variable';
-  src: url('../fonts/Carbona-Variable.woff2') format('woff2');
-  font-weight: 100 900;
-  font-style: normal;
-}
-
+    @font-face {
+        font-family: 'Carbona Variable';
+        src: url('path/to/carbona-variable.woff2') format('woff2');
+        font-weight: 100 900;
+        font-style: oblique 0deg 15deg;
+    }
 *,
 *::before,
 *::after {
@@ -27,7 +18,7 @@ body {
 }
 
 .page {
-  min-height: 100vh;
+  min-height: 100dvh;
   padding: 1.5rem 1rem 3rem;
   display: flex;
   flex-direction: column;
@@ -402,7 +393,7 @@ body {
   z-index: 1;
   width: 100%;
   max-width: 1100px;
-  max-height: 95vh;
+  max-height: 95dvh;
   background: #fdfaf5;
   border-radius: 18px;
   box-shadow: 0 18px 40px rgba(0, 0, 0, 0.45);

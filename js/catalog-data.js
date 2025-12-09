@@ -24,7 +24,7 @@ window.CATALOGS = [
         pages: [
             "./assets/images/en/politics/font-page.webp",
             "./assets/images/en/politics/politics-01.webp",
-            "./assets/images/en/politics/politics-01.webp"
+            "./assets/images/en/politics/politics-02.webp"
         ],
     },
 

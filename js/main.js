@@ -3,29 +3,25 @@
     .toLowerCase()
     .startsWith("en") ? "en" : "es";
 
+  // Referencias DOM
   const grid = document.getElementById("catalog-grid");
   const btnShowMore = document.getElementById("show-more-btn");
   
-  // Elementos del Visor
+  // Referencias Visor
   const viewer = document.getElementById("catalog-viewer");
   const viewerImg = document.getElementById("viewer-image");
   const viewerTitle = document.getElementById("viewer-title");
   const viewerSubtitle = document.getElementById("viewer-subtitle");
   const pageIndicator = document.getElementById("viewer-page-indicator");
   const zoomLabel = document.getElementById("viewer-zoom-label");
-  
-  // Botones del Visor
   const btnPrev = document.getElementById("btn-prev");
   const btnNext = document.getElementById("btn-next");
   const btnZoomIn = document.getElementById("btn-zoom-in");
   const btnZoomOut = document.getElementById("btn-zoom-out");
-  // CORRECCIÓN: Este es el botón DENTRO del visor (footer)
-  const btnViewerDownload = document.getElementById("btn-download"); 
-  
-  // CORRECCIÓN: Este es el botón GRANDE en la página principal
-  const btnGeneralDownload = document.getElementById("btn-general-download"); 
-  
   const viewerPageWrap = document.querySelector(".viewer__page-wrap");
+
+  // Referencia ÚNICA al botón de descarga General
+  const btnGeneralDownload = document.getElementById("btn-general-download");
 
   let currentCatalog = null;
   let currentPageIndex = 0;
@@ -40,23 +36,19 @@
       subtitle: "Explora nuestros menús digitales. Toca una tarjeta para ver el catálogo completo.",
       availableCatalogs: "Catálogos disponibles",
       viewMenu: "Ver menú",
-      download: "Descargar PDF", // Texto para botón del visor
       viewMore: "Ver más catálogos",
-      
-      // CORRECCIONES AQUÍ:
-      downloadGeneral: "Descargar menú completo", // Faltaba esta clave
-      generalMenuUrl: "./assets/pdf/menu-general-es.pdf", // Corregido typo 'geneal'
+      // Configuración del botón general
+      download: "Descargar menú completo",
+      generalMenuUrl: "./assets/pdf/menu-general-es.pdf",
     },
     en: {
       title: "Kit banquet menu",
       subtitle: "Explore our digital menus. Tap a card to view the full catalog.",
       availableCatalogs: "Available catalogs",
       viewMenu: "View menu",
-      download: "Download PDF", // Texto para botón del visor
       viewMore: "View more catalogs",
-      
-      // CORRECCIONES AQUÍ:
-      downloadGeneral: "Download full menu",
+      // Configuración del botón general
+      download: "Download full menu",
       generalMenuUrl: "./assets/pdf/menu-general-en.pdf",
     }
   };
@@ -76,15 +68,13 @@
       const btnLabel = document.querySelector("[data-i18n='viewMore']");
       if (btnLabel) btnLabel.textContent = i18nTexts[lang].viewMore;
 
-      if (btnViewerDownload) {
-        const dlSpan = btnViewerDownload.querySelector("span");
-        if(dlSpan) dlSpan.textContent = i18nTexts[lang].download;
-      }
-
+      // Actualizar ÚNICAMENTE el botón general
       if (btnGeneralDownload) {
+          // Actualiza el link
           btnGeneralDownload.href = i18nTexts[lang].generalMenuUrl;
+          // Actualiza el texto
           const span = btnGeneralDownload.querySelector("span");
-          if (span) span.textContent = i18nTexts[lang].downloadGeneral;
+          if (span) span.textContent = i18nTexts[lang].download;
       }
 
       renderGrid();
@@ -173,13 +163,12 @@
     if (window.innerWidth > 768) {
       currentZoom = 0.80;
     } else {
-      currentZoom = 0.80;
+      currentZoom = 1;
     }
 
     viewerTitle.textContent = catalog.title;
     viewerSubtitle.textContent = catalog.subtitle || "";
     
-    btnViewerDownload.href = catalog.pdfUrl || "#";
 
     updateViewerPage(true);
     updateZoomLabel();
@@ -355,7 +344,6 @@
     if(initialRadio) initialRadio.checked = true;
 
     setLanguage(currentLang); 
-    
     setupShowMore();
     setupViewerEvents();
     setupSwipe();
