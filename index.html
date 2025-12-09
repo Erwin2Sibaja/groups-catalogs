@@ -22,15 +22,26 @@
         </div>
 
         <div class="header-right">
-            <select id="lang-switcher" class="lang-switcher">
-                <option value="es">ES</option>
-                <option value="en">EN</option>
-            </select>
+            <div class="lang-toggle-wrapper">
+                <input type="radio" name="lang" id="lang-es" value="es" checked>
+                <label for="lang-es">ES</label>
+                
+                <input type="radio" name="lang" id="lang-en" value="en">
+                <label for="lang-en">EN</label>
+                
+                <div class="lang-toggle-bg"></div>
+            </div>
         </div>
     </header>
-    <div class="viewer__actions">
-      <a id="btn-download" class="btn-primary" href="#" target="_blank" rel="noopener" data-i18n="download">
-        Descargar menú completo
+    <div style="display: flex; justify-content: center; margin-bottom: 2rem;">
+      <a id="btn-general-download" class="download-btn" href="#" target="_blank" rel="noopener">
+        <span data-i18n="download">Descargar Menú General</span>
+        
+        <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M12 16L12 8" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+            <path d="M9 13L12 16L15 13" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            <path d="M3 15V19C3 20.1046 3.89543 21 5 21H19C20.1046 21 21 20.1046 21 19V15" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
       </a>
     </div>
     <section class="catalog-section">

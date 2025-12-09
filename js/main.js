@@ -1,88 +1,100 @@
 (function () {
-  const currentLang = (document.documentElement.lang || "es")
+  let currentLang = (document.documentElement.lang || "es")
     .toLowerCase()
-    .startsWith("en")
-    ? "en"
-    : "es";
+    .startsWith("en") ? "en" : "es";
 
   const grid = document.getElementById("catalog-grid");
   const btnShowMore = document.getElementById("show-more-btn");
-
-  let currentCatalog = null;
-  let currentPageIndex = 0;
-  let currentZoom = 1;
-
-  let startX = 0;
-  let isDragging = false;
-  let justSwiped = false;
-
+  
+  // Elementos del Visor
   const viewer = document.getElementById("catalog-viewer");
   const viewerImg = document.getElementById("viewer-image");
   const viewerTitle = document.getElementById("viewer-title");
   const viewerSubtitle = document.getElementById("viewer-subtitle");
   const pageIndicator = document.getElementById("viewer-page-indicator");
   const zoomLabel = document.getElementById("viewer-zoom-label");
-
+  
+  // Botones del Visor
   const btnPrev = document.getElementById("btn-prev");
   const btnNext = document.getElementById("btn-next");
   const btnZoomIn = document.getElementById("btn-zoom-in");
   const btnZoomOut = document.getElementById("btn-zoom-out");
-  const btnDownload = document.getElementById("btn-download");
-
+  // CORRECCIÓN: Este es el botón DENTRO del visor (footer)
+  const btnViewerDownload = document.getElementById("btn-download"); 
+  
+  // CORRECCIÓN: Este es el botón GRANDE en la página principal
+  const btnGeneralDownload = document.getElementById("btn-general-download"); 
+  
   const viewerPageWrap = document.querySelector(".viewer__page-wrap");
 
-  const langSwitcher = document.getElementById("lang-switcher");
+  let currentCatalog = null;
+  let currentPageIndex = 0;
+  let currentZoom = 1;
+  let startX = 0;
+  let isDragging = false;
+  let justSwiped = false;
+
   const i18nTexts = {
     es: {
       title: "Kit de banquetes",
       subtitle: "Explora nuestros menús digitales. Toca una tarjeta para ver el catálogo completo.",
       availableCatalogs: "Catálogos disponibles",
       viewMenu: "Ver menú",
-      download: "Descargar menú completo",
+      download: "Descargar PDF", // Texto para botón del visor
       viewMore: "Ver más catálogos",
+      
+      // CORRECCIONES AQUÍ:
+      downloadGeneral: "Descargar menú completo", // Faltaba esta clave
+      generalMenuUrl: "./assets/pdf/menu-general-es.pdf", // Corregido typo 'geneal'
     },
     en: {
       title: "Kit banquet menu",
       subtitle: "Explore our digital menus. Tap a card to view the full catalog.",
       availableCatalogs: "Available catalogs",
       viewMenu: "View menu",
-      download: "Download full menu",
+      download: "Download PDF", // Texto para botón del visor
       viewMore: "View more catalogs",
+      
+      // CORRECCIONES AQUÍ:
+      downloadGeneral: "Download full menu",
+      generalMenuUrl: "./assets/pdf/menu-general-en.pdf",
     }
   };
 
-langSwitcher.addEventListener("change", () => {
-      const selected = langSwitcher.value;
+  const langRadios = document.querySelectorAll('input[name="lang"]');
 
-      document.querySelector("[data-i18n='title']").textContent =
-        i18nTexts[selected].title;
+  function setLanguage(lang) {
+      currentLang = lang;
+
+      // Actualizar textos generales
+      document.querySelector("[data-i18n='title']").textContent = i18nTexts[lang].title;
+      document.querySelector("[data-i18n='subtitle']").textContent = i18nTexts[lang].subtitle;
       
-      document.querySelector("[data-i18n='subtitle']").textContent =
-        i18nTexts[selected].subtitle;
-
-            document.querySelector("[data-i18n='download']").textContent =
-        i18nTexts[selected].download;
-
-      const headerLabel = document.querySelector("[data-i18n='availableCatalogs'] h2"); 
-      if(headerLabel) {
-         document.querySelector("[data-i18n='availableCatalogs'] h2").textContent = i18nTexts[selected].availableCatalogs;
-      } else {
-         const directH2 = document.querySelector("[data-i18n='availableCatalogs']");
-         if(directH2) directH2.textContent = i18nTexts[selected].availableCatalogs;
-      }
+      const headerLabel = document.querySelector("[data-i18n='availableCatalogs']");
+      if(headerLabel) headerLabel.textContent = i18nTexts[lang].availableCatalogs;
 
       const btnLabel = document.querySelector("[data-i18n='viewMore']");
-      if (btnLabel) {
-        btnLabel.textContent = i18nTexts[selected].viewMore;
+      if (btnLabel) btnLabel.textContent = i18nTexts[lang].viewMore;
+
+      if (btnViewerDownload) {
+        const dlSpan = btnViewerDownload.querySelector("span");
+        if(dlSpan) dlSpan.textContent = i18nTexts[lang].download;
       }
 
-      grid.innerHTML = "";
-      const catalogs = (window.CATALOGS || []).filter(c => c.lang === selected);
-      catalogs.forEach((c, idx) => grid.appendChild(createCard(c, idx)));
+      if (btnGeneralDownload) {
+          btnGeneralDownload.href = i18nTexts[lang].generalMenuUrl;
+          const span = btnGeneralDownload.querySelector("span");
+          if (span) span.textContent = i18nTexts[lang].downloadGeneral;
+      }
 
-      btnShowMore.style.display = catalogs.length > 6 ? "inline-flex" : "none";
+      renderGrid();
+  }
+
+  langRadios.forEach(radio => {
+      radio.addEventListener('change', (e) => {
+          setLanguage(e.target.value);
+      });
   });
-
 
   function getCatalogsForLang(lang) {
     return (window.CATALOGS || []).filter((c) => c.lang === lang);
@@ -93,11 +105,9 @@ langSwitcher.addEventListener("change", () => {
   }
 
   function createCard(catalog, index) {
-    const selected = langSwitcher.value;
     const article = document.createElement("article");
     article.className = "catalog-card";
     article.dataset.id = catalog.id;
-
 
     if (index >= 6) {
       article.style.display = "none";
@@ -121,7 +131,7 @@ langSwitcher.addEventListener("change", () => {
         <p class="catalog-card__desc">${catalog.description}</p>
 
         <div class="catalog-card__btn-wrap">
-          <button class="btn-primary" type="button">${i18nTexts[selected].viewMenu}</button>
+          <button class="btn-primary" type="button">${i18nTexts[currentLang].viewMenu}</button>
         </div>
       </div>
     `;
@@ -147,14 +157,11 @@ langSwitcher.addEventListener("change", () => {
 
   function setupShowMore() {
     btnShowMore.addEventListener("click", () => {
-
       const hiddenCards = grid.querySelectorAll(".js-hidden-card");
-      
       hiddenCards.forEach((card) => {
         card.style.display = "";
         card.classList.remove("js-hidden-card");
       });
-      
       btnShowMore.style.display = "none";
     });
   }
@@ -166,12 +173,13 @@ langSwitcher.addEventListener("change", () => {
     if (window.innerWidth > 768) {
       currentZoom = 0.80;
     } else {
-      currentZoom = 1;
+      currentZoom = 0.80;
     }
 
     viewerTitle.textContent = catalog.title;
     viewerSubtitle.textContent = catalog.subtitle || "";
-    btnDownload.href = catalog.pdfUrl || "#";
+    
+    btnViewerDownload.href = catalog.pdfUrl || "#";
 
     updateViewerPage(true);
     updateZoomLabel();
@@ -180,7 +188,7 @@ langSwitcher.addEventListener("change", () => {
     viewer.setAttribute("aria-hidden", "false");
   }
 
-function closeViewer() {
+  function closeViewer() {
     viewer.classList.remove("viewer--open");
     viewer.setAttribute("aria-hidden", "true");
     
@@ -341,10 +349,13 @@ function closeViewer() {
       if (e.key === "ArrowLeft") changePage(-1);
     });
   }
-  
 
   document.addEventListener("DOMContentLoaded", () => {
-    renderGrid();
+    const initialRadio = document.querySelector(`input[name="lang"][value="${currentLang}"]`);
+    if(initialRadio) initialRadio.checked = true;
+
+    setLanguage(currentLang); 
+    
     setupShowMore();
     setupViewerEvents();
     setupSwipe();

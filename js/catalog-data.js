@@ -13,7 +13,6 @@ window.CATALOGS = [
             "./assets/images/es/politics/politics-01.webp",
             "./assets/images/es/politics/politics-02.webp",
         ],
-        pdfUrl: "./assets/pdf/catalogo-eventos-es.pdf"
     },
     {
         id: "politics",
@@ -27,7 +26,6 @@ window.CATALOGS = [
             "./assets/images/en/politics/politics-01.webp",
             "./assets/images/en/politics/politics-01.webp"
         ],
-        pdfUrl: "./assets/pdf/catalogo-eventos-en.pdf"
     },
 
     /* Plated Breakfast */
@@ -44,7 +42,6 @@ window.CATALOGS = [
             "./assets/images/es/plated-breakfast/plated-breakfast-02.webp",
             "./assets/images/es/plated-breakfast/plated-breakfast-03.webp"
         ],
-        pdfUrl: ""
     },
     {
         id: "plated-breakfast",
@@ -59,7 +56,6 @@ window.CATALOGS = [
             "./assets/images/en/plated-breakfast/plated-breakfast-02.webp",
             "./assets/images/en/plated-breakfast/plated-breakfast-03.webp"
         ],
-        pdfUrl: ""
     },
 
     /* Buffet Breakfast */
@@ -76,7 +72,6 @@ window.CATALOGS = [
             "./assets/images/es/buffet-breakfast/buffet-breakfast-02.webp",
             "./assets/images/es/buffet-breakfast/buffet-breakfast-03.webp",
         ],
-        pdfUrl: ""
     },
     {
         id: "buffet-breakfast",
@@ -91,7 +86,6 @@ window.CATALOGS = [
             "./assets/images/en/buffet-breakfast/buffet-breakfast-02.webp",
             "./assets/images/en/buffet-breakfast/buffet-breakfast-03.webp",
         ],
-        pdfUrl: ""
     },
 
     /* Plated Dinners */
@@ -108,7 +102,6 @@ window.CATALOGS = [
             "./assets/images/es/plated-dinners/plated-dinners-02.webp",
             "./assets/images/es/plated-dinners/plated-dinners-03.webp",
         ],
-        pdfUrl: ""
     },
     {
         id: "plated-dinners",
@@ -123,7 +116,6 @@ window.CATALOGS = [
             "./assets/images/en/plated-dinners/plated-dinners-02.webp",
             "./assets/images/en/plated-dinners/plated-dinners-03.webp",
         ],
-        pdfUrl: ""
     },
 
     /* Buffet Dinners */
@@ -142,7 +134,6 @@ window.CATALOGS = [
             "./assets/images/es/buffet-dinners/buffet-dinner-04.webp",
             "./assets/images/es/buffet-dinners/buffet-dinner-05.webp",
         ],
-        pdfUrl: ""
     },
     {
         id: "buffet-dinners",
@@ -159,7 +150,6 @@ window.CATALOGS = [
             "./assets/images/en/buffet-dinners/buffet-dinner-04.webp",
             "./assets/images/en/buffet-dinners/buffet-dinner-05.webp",
         ],
-        pdfUrl: ""
     },
 
     /* Coffee Break */
@@ -176,7 +166,6 @@ window.CATALOGS = [
             "./assets/images/es/coffee-break/coffee-break-02.webp",
             "./assets/images/es/coffee-break/coffee-break-03.webp"
         ],
-        pdfUrl: ""
     },
     {
         id: "coffee-break",
@@ -191,7 +180,6 @@ window.CATALOGS = [
             "./assets/images/en/coffee-break/coffee-break-02.webp",
             "./assets/images/en/coffee-break/coffee-break-03.webp"
         ],
-        pdfUrl: ""
     },
 
     /* Canapés */
@@ -208,7 +196,6 @@ window.CATALOGS = [
             "./assets/images/es/canapes/canapes-02.webp",
             "./assets/images/es/canapes/canapes-03.webp",
         ],
-        pdfUrl: ""
     },
     {
         id: "canapes",
@@ -223,7 +210,6 @@ window.CATALOGS = [
             "./assets/images/en/canapes/canapes-02.webp",
             "./assets/images/en/canapes/canapes-03.webp",
         ],
-        pdfUrl: ""
     },
 
     /* Open Bar */
@@ -239,7 +225,6 @@ window.CATALOGS = [
             "./assets/images/es/open-bar/open-bar-01.webp",
             "./assets/images/es/open-bar/open-bar-02.webp"
         ],
-        pdfUrl: ""
     },
     {
         id: "open-bar",
@@ -253,7 +238,6 @@ window.CATALOGS = [
             "./assets/images/en/open-bar/open-bar-01.webp",
             "./assets/images/en/open-bar/open-bar-02.webp"
         ],
-        pdfUrl: ""
     },
 
     /* Box Lunch */
@@ -268,7 +252,6 @@ window.CATALOGS = [
             "./assets/images/es/box-lunch/font-page.webp",
             "./assets/images/es/box-lunch/box-lunch-01.webp"
         ],
-        pdfUrl: ""
     },
     {
         id: "box-lunch",
@@ -281,6 +264,5 @@ window.CATALOGS = [
             "./assets/images/en/box-lunch/font-page.webp",
             "./assets/images/en/box-lunch/box-lunch-01.webp"
         ],
-        pdfUrl: ""
     },
 ];
