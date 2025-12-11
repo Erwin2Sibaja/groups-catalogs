@@ -3,11 +3,8 @@
     .toLowerCase()
     .startsWith("en") ? "en" : "es";
 
-  // Referencias DOM
   const grid = document.getElementById("catalog-grid");
   const btnShowMore = document.getElementById("show-more-btn");
-  
-  // Referencias Visor
   const viewer = document.getElementById("catalog-viewer");
   const viewerImg = document.getElementById("viewer-image");
   const viewerTitle = document.getElementById("viewer-title");
@@ -20,8 +17,8 @@
   const btnZoomOut = document.getElementById("btn-zoom-out");
   const viewerPageWrap = document.querySelector(".viewer__page-wrap");
 
-  // Referencia ÚNICA al botón de descarga General
   const btnGeneralDownload = document.getElementById("btn-general-download");
+  const scrollTopBtn = document.getElementById("scroll-top-btn");
 
   let currentCatalog = null;
   let currentPageIndex = 0;
@@ -37,7 +34,6 @@
       availableCatalogs: "Catálogos disponibles",
       viewMenu: "Ver menú",
       viewMore: "Ver más catálogos",
-      // Configuración del botón general
       download: "Descargar menú completo",
       generalMenuUrl: "./assets/pdf/es/menu-general-es.pdf",
     },
@@ -47,7 +43,6 @@
       availableCatalogs: "Available catalogs",
       viewMenu: "View menu",
       viewMore: "View more catalogs",
-      // Configuración del botón general
       download: "Download full menu",
       generalMenuUrl: "./assets/pdf/en/menu-general-en.pdf",
     }
@@ -58,21 +53,17 @@
   function setLanguage(lang) {
       currentLang = lang;
 
-      // Actualizar textos generales
       document.querySelector("[data-i18n='title']").textContent = i18nTexts[lang].title;
       document.querySelector("[data-i18n='subtitle']").textContent = i18nTexts[lang].subtitle;
       
-      const headerLabel = document.querySelector("[data-i18n='availableCatalogs']");
+      const headerLabel = document.querySelector("[data-i18n='availableCatalogs'] h2") || document.querySelector("[data-i18n='availableCatalogs']");
       if(headerLabel) headerLabel.textContent = i18nTexts[lang].availableCatalogs;
 
       const btnLabel = document.querySelector("[data-i18n='viewMore']");
       if (btnLabel) btnLabel.textContent = i18nTexts[lang].viewMore;
 
-      // Actualizar ÚNICAMENTE el botón general
       if (btnGeneralDownload) {
-          // Actualiza el link
           btnGeneralDownload.href = i18nTexts[lang].generalMenuUrl;
-          // Actualiza el texto
           const span = btnGeneralDownload.querySelector("span");
           if (span) span.textContent = i18nTexts[lang].download;
       }
@@ -121,14 +112,15 @@
         <p class="catalog-card__desc">${catalog.description}</p>
 
         <div class="catalog-card__btn-wrap">
-          <button class="btn-primary" type="button">${i18nTexts[currentLang].viewMenu}</button>
+          <button class="btn-primary card-action-btn" type="button">${i18nTexts[currentLang].viewMenu}</button>
         </div>
       </div>
     `;
 
-    article
-      .querySelector("button")
-      .addEventListener("click", () => openViewer(catalog, 0));
+    const actionBtn = article.querySelector(".card-action-btn");
+    actionBtn.addEventListener("click", () => {
+        openViewer(catalog, 0);
+    });
 
     return article;
   }
@@ -156,20 +148,34 @@
     });
   }
 
+  function setupScrollTop() {
+    if (!scrollTopBtn) return;
+
+    window.addEventListener("scroll", () => {
+      if (window.scrollY > 300) {
+        scrollTopBtn.classList.add("show");
+      } else {
+        scrollTopBtn.classList.remove("show");
+      }
+    });
+
+    scrollTopBtn.addEventListener("click", () => {
+      window.scrollTo({
+        top: 0,
+        behavior: "smooth"
+      });
+    });
+  }
+
   function openViewer(catalog, pageIndex) {
     currentCatalog = catalog;
     currentPageIndex = pageIndex || 0;
 
-    if (window.innerWidth > 768) {
-      currentZoom = 0.80;
-    } else {
-      currentZoom = 1;
-    }
+    currentZoom = 0.80;
 
     viewerTitle.textContent = catalog.title;
     viewerSubtitle.textContent = catalog.subtitle || "";
     
-
     updateViewerPage(true);
     updateZoomLabel();
 
@@ -348,5 +354,6 @@
     setupViewerEvents();
     setupSwipe();
     setupClickZones();
+    setupScrollTop();
   });
 })();

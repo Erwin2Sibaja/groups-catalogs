@@ -533,6 +533,60 @@ body {
   display: block;
 }
 
+.scroll-top-btn {
+  position: fixed;
+  bottom: 2rem;
+  right: 1.5rem;
+  width: 3rem;
+  height: 3rem;
+  border-radius: 50%;
+  border: none;
+  cursor: pointer;
+  z-index: 90;
+  
+  background: linear-gradient(0deg, #007d6b 0%, #00bfa3 100%);
+  color: white;
+  box-shadow: 0 4px 12px rgba(0, 150, 129, 0.4);
+  
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(20px);
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.scroll-top-btn svg {
+  width: 24px;
+  height: 24px;
+}
+
+.scroll-top-btn.show {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+}
+
+.scroll-top-btn:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 6px 16px rgba(0, 150, 129, 0.6);
+}
+
+.scroll-top-btn:active {
+  transform: scale(0.95);
+}
+
+@media (max-width: 768px) {
+  .scroll-top-btn {
+    bottom: 1.5rem;
+    right: 1rem;
+    width: 3.2rem;
+    height: 3.2rem;
+  }
+}
+
 @media (max-width: 768px) {
   .page__header {
     flex-direction: column;
